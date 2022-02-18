@@ -9,13 +9,11 @@ class SwitchItem implements ListItem {
 
   SwitchItem(this.switchText, this.isOn);
 
-  @override
-  Widget buildHead(BuildContext context) => const SizedBox.shrink();
 
   @override
   Widget buildBody(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: 10, bottom: 10),
+      padding: EdgeInsets.only(top: 10),
       child: ClipRRect(
         borderRadius: BorderRadius.all(Radius.circular(15)),
         child: Container(

@@ -12,8 +12,6 @@ class InfoSection implements ListItem {
   InfoSection(this.infoTitle, this.infoDescription);
 
   @override
-  Widget buildHead(BuildContext context) => const SizedBox.shrink();
-  @override
   Widget buildBody(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 15, right: 15),
@@ -35,7 +33,11 @@ class InfoSection implements ListItem {
             child: Icon(Icons.info_outline_rounded, color: Colors.grey),
           ),
           Text(infoDescription,
-            textAlign: TextAlign.justify,),
+            textAlign: TextAlign.justify,
+          style: TextStyle(
+            fontSize: 14,
+            color : Colors.black45,
+          ),),
         ],
       ),
     );

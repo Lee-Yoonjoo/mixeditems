@@ -10,8 +10,6 @@ class QuestionTextSection implements ListItem {
 
   QuestionTextSection(this.headTitle, this.subTitle);
 
-  @override
-  Widget buildHead(BuildContext context) => const SizedBox.shrink();
 
   @override
   Widget buildBody(BuildContext context) {

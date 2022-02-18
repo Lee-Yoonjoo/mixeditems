@@ -8,7 +8,7 @@ class ExpandableListSection implements ListItem {
   ExpandableListSection(this.title);
 
   @override
-  Widget buildHead(BuildContext context) {
+  Widget buildBody(BuildContext context) {
     return ListTile(
       leading: Icon(Icons.keyboard_arrow_right),
       title: Text(
@@ -22,6 +22,4 @@ class ExpandableListSection implements ListItem {
     );
   }
 
-  @override
-  Widget buildBody(BuildContext context) => const SizedBox.shrink();
 }

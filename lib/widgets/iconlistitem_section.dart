@@ -16,16 +16,15 @@ class IconListItem implements ListItem {
   @override
   Widget buildBody(BuildContext context) {
 
-    return Align(
-      alignment: Alignment(-1.2, 0),
-      child:  ListTile(
-        title: Text(name),
-        subtitle: Text(latestAccess),
-        leading: CircleAvatar(
-          child: Icon(icon),
-        ),
-      ),
+    return   ListTile(
+      visualDensity: VisualDensity(horizontal: 0, vertical: -3),
+          title: Text(name),
+          subtitle: Text(latestAccess),
+          leading: CircleAvatar(
+            child: Icon(icon),
+          ),
     );
+
 
   }
 

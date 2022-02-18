@@ -58,8 +58,8 @@ class MyApp extends StatelessWidget {
             final item = items[index];
 
             return ListTile(
-              title: item.buildHead(context),
-              subtitle: item.buildBody(context),
+              visualDensity: VisualDensity(horizontal: 0, vertical: -4),
+              title:item.buildBody(context),
             );
           },
         ),

@@ -9,11 +9,9 @@ class IconListHead implements ListItem {
   IconListHead(this.headerText);
 
   @override
-  Widget buildHead(BuildContext context) {
-    return SizedBox(
-      height: 15,
-      child : Padding(
-      padding: EdgeInsets.only(left:10, right:10),
+  Widget buildBody(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(left:10, right:10, top: 10),
       child: Text(
         headerText.toUpperCase(),
         style: const TextStyle(
@@ -22,10 +20,7 @@ class IconListHead implements ListItem {
           color: Colors.black45,
         ),
       ),
-    ),
     );
   }
 
-  @override
-  Widget buildBody(BuildContext context) => const SizedBox.shrink();
 }
