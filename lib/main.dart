@@ -6,15 +6,22 @@ void main() {
     Access('Emergency Information', '8 minutes ago', Icons.warning),
     Access('Maps', '8 minutes ago', Icons.pin_drop),
   ];
-  const switchText = 'Latest Location ';
-  const headText = 'Latest Access';
+
+  List<ListItem> listItems = [
+    SwitchItem('Latest Location', true),
+    IconListSection('Latest Access', accessList),
+    ExpandableListSection('See all'),
+    QuestionTextSection('Welche Apps dürfen den Standort ermitteln?',
+        '28 von 90 Apps haben Zugriff auf den Standort'),
+    InfoSection('Location Service',
+        "You can allow your phone to use GPS, Wi-Fi networks, and cellular networks to determine your approximate location. Applications that have permission can use this information to provide location-based services, such as checking in for a flight, viewing traffic information, finding nearby restaurants, or tagging your photos with location information.")
+  ];
   runApp(
     MyApp(
       items: List<ListItem>.generate(
-        100,
-        (i) => i % 6 == 0
-            ? SwitchItem(switchText, false)
-            : IconListSection(headText, accessList),
+        listItems.length,
+        (int index) => listItems[index],
+        growable: false,
       ),
     ),
   );
@@ -72,17 +79,26 @@ class SwitchItem implements ListItem {
 
   @override
   Widget buildBody(BuildContext context) {
-    return SwitchListTile(
-      title: Text(switchText),
-      value: isOn,
-      onChanged: (bool isOn) {
-        if (isOn) {
-          isOn = false;
-        } else {
-          isOn = true;
-        }
-      },
-      // secondary: const Icon(Icons.lightbulb_outline),
+    return Padding(
+      padding: EdgeInsets.only(top: 10, bottom: 10),
+      child: ClipRRect(
+        borderRadius: BorderRadius.all(Radius.circular(15)),
+        child: Container(
+          color: Colors.amber,
+          child: SwitchListTile(
+            title: Text(
+              switchText,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.black45,
+              ),
+            ),
+            value: isOn,
+            onChanged: (bool isOn) {
+            },
+          ),
+        ),
+      ),
     );
   }
 }
@@ -91,21 +107,19 @@ class IconListSection implements ListItem {
   final String headerText;
   final List<Access> accessList;
 
-/*  final String name;
-  final IconData icon;
-  final String subName;*/
-
   IconListSection(this.headerText, this.accessList);
 
   @override
   Widget buildHead(BuildContext context) {
-    return Text(
-      headerText.toUpperCase(),
-      style: TextStyle(
-        fontSize: 15,
-        fontWeight: FontWeight.bold,
-        color: Colors.black45,
-        fontFamily: 'muli',
+    return Padding(
+      padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+      child: Text(
+        headerText.toUpperCase(),
+        style: TextStyle(
+          fontSize: 13,
+          fontWeight: FontWeight.bold,
+          color: Colors.black45,
+        ),
       ),
     );
   }
@@ -118,16 +132,109 @@ class IconListSection implements ListItem {
       itemCount: accessList.length,
       itemBuilder: (context, index) {
         return ListTile(
-
           title: Text(accessList[index].name),
           subtitle: Text(accessList[index].latestAccess),
           leading: CircleAvatar(
             child: Icon(accessList[index].iconData),
           ),
-
         );
       },
     );
+  }
+}
+
+class ExpandableListSection implements ListItem {
+  final String title;
+
+  ExpandableListSection(this.title);
+
+  @override
+  Widget buildHead(BuildContext context) {
+    return ListTile(
+      leading: Icon(Icons.keyboard_arrow_right),
+      title: Text(
+        title.toUpperCase(),
+        style: TextStyle(
+          fontSize: 15,
+          fontWeight: FontWeight.bold,
+          color: Colors.black45,
+        ),
+      ),
+    );
+  }
+
+  @override
+  Widget buildBody(BuildContext context) => const SizedBox.shrink();
+}
+
+class QuestionTextSection implements ListItem {
+  final String headTitle;
+  final String subTitle;
+
+  QuestionTextSection(this.headTitle, this.subTitle);
+
+  @override
+  Widget buildHead(BuildContext context) => const SizedBox.shrink();
+
+  @override
+  Widget buildBody(BuildContext context) {
+    return  ListTile(
+        title: Padding(
+          padding: const EdgeInsets.only(bottom: 5),
+          child: Text(
+            headTitle,
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: Colors.black45,
+            ),
+          ),
+        ),
+        subtitle: Text(subTitle,
+          style: TextStyle(
+            fontSize: 13,
+            color: Colors.black45,
+          ),),
+      );
+
+  }
+}
+
+class InfoSection implements ListItem {
+  final String infoTitle;
+  final String infoDescription;
+
+  InfoSection(this.infoTitle, this.infoDescription);
+
+  @override
+  Widget buildHead(BuildContext context) => const SizedBox.shrink();
+  @override
+  Widget buildBody(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 15, right: 15),
+      child:  Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(
+            infoTitle,
+            textAlign: TextAlign.left,
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: Colors.black45,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 5, bottom: 5),
+            child: Icon(Icons.info_outline_rounded, color: Colors.grey),
+          ),
+          Text(infoDescription,
+          textAlign: TextAlign.justify,),
+        ],
+      ),
+    );
+
   }
 }
 
