@@ -23,5 +23,9 @@
  * 5. push on remote repo with git push origin --all
  *
  *
+ * 6. After pushing files on feature/login, did Pull Request
+ * 7. When it is approved, it can be merged (these two lines will be pushed on develop branch)
+ *
+ *
  *
  */
