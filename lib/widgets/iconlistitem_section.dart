@@ -10,8 +10,6 @@ class IconListItem implements ListItem {
   IconData icon;
   IconListItem(this.name, this.latestAccess, this.icon);
 
-  @override
-  Widget buildHead(BuildContext context) => const SizedBox.shrink();
 
   @override
   Widget buildBody(BuildContext context) {

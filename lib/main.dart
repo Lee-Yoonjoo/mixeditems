@@ -9,7 +9,7 @@ void main() {
       items: List<ListItem>.generate(
         listItems.length,
         (int index) => listItems[index],
-        growable: false,
+        growable: true,
       ),
     ),
   );
@@ -32,6 +32,7 @@ class MyApp extends StatelessWidget {
           title: const Text(title),
         ),
         body: ListView.builder(
+          shrinkWrap: true,
           itemCount: items.length,
           itemBuilder: (context, index) {
             final item = items[index];
