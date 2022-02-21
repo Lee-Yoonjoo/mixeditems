@@ -11,6 +11,9 @@ class SwitchItem implements ListItem {
 
 
   @override
+  Widget buildHead(BuildContext context) => const SizedBox.shrink();
+
+  @override
   Widget buildBody(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(top: 10),

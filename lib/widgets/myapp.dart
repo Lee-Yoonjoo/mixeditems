@@ -28,7 +28,8 @@ class MyApp extends StatelessWidget {
 
             return ListTile(
               visualDensity: const VisualDensity(horizontal: 0, vertical: -4),
-              title:item.buildBody(context),
+              title:item.buildHead(context),
+              subtitle: item.buildBody(context),
             );
           },
         ),

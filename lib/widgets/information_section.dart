@@ -1,8 +1,4 @@
-
-
-
 import 'package:flutter/material.dart';
-
 import '../models/listitem.dart';
 
 class InfoSection implements ListItem {
@@ -10,6 +6,11 @@ class InfoSection implements ListItem {
   final String infoDescription;
 
   InfoSection(this.infoTitle, this.infoDescription);
+
+
+
+  @override
+  Widget buildHead(BuildContext context) => const SizedBox.shrink();
 
   @override
   Widget buildBody(BuildContext context) {
