@@ -5,9 +5,9 @@ import '../models/listitem.dart';
 
 class IconListSection implements ListItem {
   final String headerText;
-  Repo repo;
+  Repo _repo;
 
-  IconListSection(this.headerText, this.repo);
+  IconListSection(this.headerText, this._repo);
 
   @override
   Widget buildHead(BuildContext context) {
@@ -28,12 +28,12 @@ class IconListSection implements ListItem {
   Widget buildBody(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: createMockData(),
+      children: _createMockData(),
     );
   }
 
-  List<Widget> createMockData() {
-    List<IconItem> iconItemList = repo.getIconListItems();
+  List<Widget> _createMockData() {
+    List<IconItem> iconItemList = _repo.getIconListItems();
     return iconItemList
         .map((i) => ListTile(
               visualDensity: const VisualDensity(horizontal: 0, vertical: -2),
