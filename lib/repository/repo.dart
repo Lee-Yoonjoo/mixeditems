@@ -11,7 +11,7 @@ class Repo {
   List<ListItem> getListItems() {
     return [
       SwitchItem('Latest Location', true),
-      IconListSection('Latest Access'),
+      IconListSection('Latest Access', this),
       ExpandableListSection('See all', this),
       QuestionTextSection('Welche Apps dürfen den Standort ermitteln?',
           '28 von 90 Apps haben Zugriff auf den Standort'),
