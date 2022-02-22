@@ -5,7 +5,6 @@ import 'package:mixeditems/widgets/iconlist_section.dart';
 import 'package:mixeditems/widgets/information_section.dart';
 import 'package:mixeditems/widgets/question_section.dart';
 import 'package:mixeditems/widgets/switch_section.dart';
-
 import '../models/listitem.dart';
 
 class Repo {
@@ -13,7 +12,7 @@ class Repo {
     return [
       SwitchItem('Latest Location', true),
       IconListSection('Latest Access'),
-      ExpandableListSection('See all'),
+      ExpandableListSection('See all', this),
       QuestionTextSection('Welche Apps dürfen den Standort ermitteln?',
           '28 von 90 Apps haben Zugriff auf den Standort'),
       InfoSection('Location Service',
@@ -21,16 +20,15 @@ class Repo {
     ];
   }
 
-  List<IconItem> getIconListItems(){
+  List<IconItem> getIconListItems() {
     return [
       IconItem('Fit', '5 minutes ago', Icons.fitness_center),
       IconItem('Emergency Information', '8 minutes ago', Icons.warning),
       IconItem('Maps', '8 minutes ago', Icons.pin_drop),
     ];
-
   }
-  List<int> getMockData(){
-    return [1,2,3,4,5];
 
+  List<int> getMockData() {
+    return [1, 2, 3, 4, 5];
   }
 }
