@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mixeditems/repository/repo.dart';
+import 'package:provider/provider.dart';
 import '../models/listitem.dart';
+import '../providers/provider.dart';
 
 class ExpandableListSection implements ListItem {
   final String title;
@@ -16,14 +18,16 @@ class ExpandableListSection implements ListItem {
     return ExpansionTile(
       title: Text(title),
       controlAffinity: ListTileControlAffinity.leading,
-      children: _createMockData(),
+      children: _createMockData(context),
     );
   }
 
 
 
-  List<Widget> _createMockData() {
-    List<int> mockData = _repo.getMockData();
+  List<Widget> _createMockData(BuildContext context) {
+    final customProvider = Provider.of<CustomProvider>(context, listen: false);
+    customProvider.loadIconItems();
+    List<int> mockData = customProvider.intItems;
     return mockData
         .map((i) => ListTile(
               leading: CircleAvatar(child: Text('$i')),

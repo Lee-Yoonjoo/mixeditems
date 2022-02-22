@@ -14,19 +14,21 @@ class Home extends StatelessWidget {
   }
 
   Widget _buildListView(BuildContext context) {
-    return Consumer<CustomProvider>(
-      builder: (context, provider, index) => ListView.builder(
-        shrinkWrap: true,
-        itemCount: provider.listItems.length,
-        itemBuilder: (context, index) {
-          final item = provider.listItems[index];
-          return ListTile(
-            visualDensity: const VisualDensity(horizontal: 0, vertical: -4),
-            title: item.buildHead(context),
-            subtitle: item.buildBody(context),
-          );
-        },
-      ),
+    final customProvider = Provider.of<CustomProvider>(context, listen: false);
+    customProvider.loadListItems();
+
+    return ListView.builder(
+      shrinkWrap: true,
+      itemCount: customProvider.listItems.length,
+      itemBuilder: (context, index) {
+        final item = customProvider.listItems[index];
+
+        return ListTile(
+          visualDensity: const VisualDensity(horizontal: 0, vertical: -4),
+          title: item.buildHead(context),
+          subtitle: item.buildBody(context),
+        );
+      },
     );
   }
 }
