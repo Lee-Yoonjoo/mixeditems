@@ -29,4 +29,8 @@ class Repo {
     ];
 
   }
+  List<int> getMockData(){
+    return [1,2,3,4,5];
+
+  }
 }

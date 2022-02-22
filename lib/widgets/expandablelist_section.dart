@@ -7,8 +7,6 @@ class ExpandableListSection implements ListItem {
   final String title;
   ExpandableListSection(this.title);
 
-  //Expandable List starts.
-
   @override
   Widget buildHead(BuildContext context) => const SizedBox.shrink();
 
@@ -21,7 +19,7 @@ class ExpandableListSection implements ListItem {
     );
   }
 
-  List<int> mockData = [1,2,3,4,5];
+  List<int> mockData = Repo().getMockData();
   List<Widget> createMockData(){
     return mockData.map((i) =>
     new ListTile(leading: CircleAvatar(child: Text('$i')),title: Text('This is item number $i'),)).toList();
