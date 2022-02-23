@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mixeditems/widgets/myapp.dart';
+import 'package:mixeditems/screens/myapp.dart';
 
 void main() {
   runApp(
