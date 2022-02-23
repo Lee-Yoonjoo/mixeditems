@@ -7,9 +7,7 @@ import '../models/listitem.dart';
 
 class IconListSection implements ListItem {
   final String headerText;
-  Repo _repo;
-
-  IconListSection(this.headerText, this._repo);
+  IconListSection(this.headerText);
 
   @override
   Widget buildHead(BuildContext context) {

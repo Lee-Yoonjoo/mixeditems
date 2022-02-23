@@ -6,9 +6,8 @@ import '../providers/provider.dart';
 
 class ExpandableListSection implements ListItem {
   final String title;
-  final Repo _repo;
 
-  ExpandableListSection(this.title, this._repo);
+  ExpandableListSection(this.title);
 
   @override
   Widget buildHead(BuildContext context) => const SizedBox.shrink();
