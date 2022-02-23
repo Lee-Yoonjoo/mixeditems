@@ -2,13 +2,18 @@
 
 import 'package:flutter/material.dart';
 
-class ItemDetail extends StatelessWidget{
+class IconDetail extends StatelessWidget{
+  const IconDetail({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('IconDetail Screen'),
+      ),
+      body: Center(
+
+      ),
+    );
   }
-  
-  
-  
 }

@@ -25,7 +25,7 @@ class ExpandableListSection implements ListItem {
 
   List<Widget> _createMockData(BuildContext context) {
     final customProvider = Provider.of<CustomProvider>(context, listen: false);
-    customProvider.loadIconItems();
+    customProvider.loadIntItems();
     List<int> mockData = customProvider.intItems;
     return mockData
         .map((i) => ListTile(

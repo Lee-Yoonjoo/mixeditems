@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mixeditems/providers/provider.dart';
-import 'package:mixeditems/widgets/home.dart';
+import 'package:mixeditems/screens/home.dart';
+import 'package:mixeditems/screens/icondetail.dart';
 import 'package:provider/provider.dart';
 
 class MyApp extends StatelessWidget {
@@ -8,14 +9,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: MultiProvider(
+    return MultiProvider(
         providers: [
-          ChangeNotifierProvider(
-              create: (BuildContext context) => CustomProvider()),
-        ],
-        child: Home(),
+        ChangeNotifierProvider(
+        create: (BuildContext context) => CustomProvider()),
+    ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        initialRoute: '/',
+        routes: {
+          '/': (context) => Home(),
+          '/iconDetail': (context) => const IconDetail(),
+        },
+
       ),
     );
   }

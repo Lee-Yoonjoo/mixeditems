@@ -7,6 +7,7 @@ import '../models/listitem.dart';
 
 class IconListSection implements ListItem {
   final String headerText;
+
   IconListSection(this.headerText);
 
   @override
@@ -44,6 +45,7 @@ class IconListSection implements ListItem {
               leading: CircleAvatar(
                 child: Icon(i.icon),
               ),
+              onTap: ()=>Navigator.pushNamed(context, '/iconDetail')
             ))
         .toList();
   }
