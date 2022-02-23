@@ -7,15 +7,15 @@ import 'package:provider/provider.dart';
 
 class ListSection implements WidgetItem {
   IconItem iconItem;
+  Map<String, List<Map<String,String>>> infolist;
 
-  ListSection(this.iconItem);
+  ListSection(this.iconItem, this.infolist);
 
   @override
   Widget buildHead(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 10, right: 10, top: 10),
-      child: Text(
-        iconItem.name.toUpperCase(),
+      child: Text(infolist.keys.first,
         style: const TextStyle(
           fontSize: 13,
           fontWeight: FontWeight.bold,
@@ -34,13 +34,14 @@ class ListSection implements WidgetItem {
   }
 
   List<Widget> _createMockData(BuildContext context) {
-    final customProvider = Provider.of<CustomProvider>(context, listen: false);
-    customProvider.loadIconDetailWidgets(iconItem);
-    List<int> itemList = customProvider.intItems;
+
+    List<Map<String,String>> itemList = infolist.values.first;
     return itemList
         .map((item) => ListTile(
       visualDensity: const VisualDensity(horizontal: 0, vertical: -2),
 
+      title: Text(item.keys.toString()),
+      subtitle: Text(item.values.toString()),
       onTap: (){
 
       },

@@ -37,8 +37,24 @@ class Repo {
   List<WidgetItem> getIconDetailWidgets(IconItem iconItem){
     return [
       HeadSection(iconItem),
-      //ListSection(iconItem),
-
+      ListSection(iconItem, infoList()),
     ];
   }
+
+  Map<String, List<Map<String,String>>> infoList (){
+    return {
+      'Usage' : [{'Mobile data':'95.65 MB used since Nov 1, 2021'},
+        {'Battery':'0% used since last fully charged'},
+        {'Storage':'1.11 GB used in Internal stor95.65 MB used since Nov 1, 2021age'},
+        {'Memory':'No memory used in last 3 hours'}
+      ],
+      'App settings':[
+        {'Notifications':'Blocked'},
+        {'Permissions':'Camera, Contacts, Location, and Physical activity'},
+        {'Set as default':'Non set as default'},
+      ]
+    };
+  }
+
+
 }
