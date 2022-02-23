@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:mixeditems/models/iconitem.dart';
-import 'package:mixeditems/widgets/expandablelist_section.dart';
-import 'package:mixeditems/widgets/iconlist_section.dart';
-import 'package:mixeditems/widgets/information_section.dart';
-import 'package:mixeditems/widgets/question_section.dart';
-import 'package:mixeditems/widgets/switch_section.dart';
-import '../models/listitem.dart';
+import 'package:mixeditems/models/listwidget.dart';
+import 'package:mixeditems/widgets/home/expandablelist_section.dart';
+import 'package:mixeditems/widgets/home/iconlist_section.dart';
+import 'package:mixeditems/widgets/home/information_section.dart';
+import 'package:mixeditems/widgets/home/question_section.dart';
+import 'package:mixeditems/widgets/home/switch_section.dart';
+import 'package:mixeditems/widgets/icondetail/head_section.dart';
+import 'package:mixeditems/widgets/icondetail/list_section.dart';
 
 class Repo {
-  List<ListItem> getListItems() {
+  List<WidgetItem> getHomeWidgets() {
     return [
       SwitchItem('Latest Location', true),
-      IconListSection('Latest Access'),
+      IconListSection('Latest Access' ),
       ExpandableListSection('See all'),
       QuestionTextSection('Welche Apps dürfen den Standort ermitteln?',
           '28 von 90 Apps haben Zugriff auf den Standort'),
@@ -30,5 +32,13 @@ class Repo {
 
   List<int> getMockData() {
     return [1, 2, 3, 4, 5];
+  }
+
+  List<WidgetItem> getIconDetailWidgets(IconItem iconItem){
+    return [
+      HeadSection(iconItem),
+      //ListSection(iconItem),
+
+    ];
   }
 }

@@ -1,21 +1,21 @@
+
 import 'package:flutter/material.dart';
+import 'package:mixeditems/models/iconitem.dart';
+import 'package:mixeditems/models/listwidget.dart';
 import 'package:mixeditems/providers/provider.dart';
-import 'package:mixeditems/repository/repo.dart';
 import 'package:provider/provider.dart';
-import '../models/iconitem.dart';
-import '../models/listitem.dart';
 
-class IconListSection implements ListItem {
-  final String headerText;
+class ListSection implements WidgetItem {
+  IconItem iconItem;
 
-  IconListSection(this.headerText);
+  ListSection(this.iconItem);
 
   @override
   Widget buildHead(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 10, right: 10, top: 10),
       child: Text(
-        headerText.toUpperCase(),
+        iconItem.name.toUpperCase(),
         style: const TextStyle(
           fontSize: 13,
           fontWeight: FontWeight.bold,
@@ -35,18 +35,16 @@ class IconListSection implements ListItem {
 
   List<Widget> _createMockData(BuildContext context) {
     final customProvider = Provider.of<CustomProvider>(context, listen: false);
-    customProvider.loadIconItems();
-    List<IconItem> iconItemList = customProvider.iconItems;
-    return iconItemList
-        .map((i) => ListTile(
-              visualDensity: const VisualDensity(horizontal: 0, vertical: -2),
-              title: Text(i.name),
-              subtitle: Text(i.latestAccess),
-              leading: CircleAvatar(
-                child: Icon(i.icon),
-              ),
-              onTap: ()=>Navigator.pushNamed(context, '/iconDetail')
-            ))
+    customProvider.loadIconDetailWidgets(iconItem);
+    List<int> itemList = customProvider.intItems;
+    return itemList
+        .map((item) => ListTile(
+      visualDensity: const VisualDensity(horizontal: 0, vertical: -2),
+
+      onTap: (){
+
+      },
+    ))
         .toList();
   }
 }

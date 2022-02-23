@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../models/listitem.dart';
+import '../../models/listwidget.dart';
 
-class SwitchItem implements ListItem {
+class SwitchItem implements WidgetItem {
   final String switchText;
   final bool isOn;
 

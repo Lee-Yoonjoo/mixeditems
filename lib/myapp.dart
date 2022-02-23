@@ -9,19 +9,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-        providers: [
-        ChangeNotifierProvider(
-        create: (BuildContext context) => CustomProvider()),
+    return MultiProvider(providers: [
+      ChangeNotifierProvider(
+          create: (BuildContext context) => CustomProvider()),
     ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/',
-        routes: {
-          '/': (context) => Home(),
-          '/iconDetail': (context) => const IconDetail(),
-        },
-
+        home: Home(),
       ),
     );
   }

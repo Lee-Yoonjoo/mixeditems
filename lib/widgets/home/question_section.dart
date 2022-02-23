@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../models/listitem.dart';
+import '../../models/listwidget.dart';
 
-class QuestionTextSection implements ListItem {
+class QuestionTextSection implements WidgetItem {
   final String headTitle;
   final String subTitle;
 

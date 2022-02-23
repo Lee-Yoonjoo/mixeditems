@@ -15,13 +15,13 @@ class Home extends StatelessWidget {
 
   Widget _buildListView(BuildContext context) {
     final customProvider = Provider.of<CustomProvider>(context, listen: false);
-    customProvider.loadListItems();
+    customProvider.loadHomeWidgets();
 
     return ListView.builder(
       shrinkWrap: true,
-      itemCount: customProvider.listItems.length,
+      itemCount: customProvider.homeWidgets.length,
       itemBuilder: (context, index) {
-        final item = customProvider.listItems[index];
+        final item = customProvider.homeWidgets[index];
 
         return ListTile(
           visualDensity: const VisualDensity(horizontal: 0, vertical: -4),

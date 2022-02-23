@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:mixeditems/repository/repo.dart';
 import 'package:provider/provider.dart';
-import '../models/listitem.dart';
-import '../providers/provider.dart';
+import '../../models/listwidget.dart';
+import '../../providers/provider.dart';
 
-class ExpandableListSection implements ListItem {
+class ExpandableListSection implements WidgetItem {
   final String title;
 
   ExpandableListSection(this.title);
