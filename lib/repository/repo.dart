@@ -45,7 +45,7 @@ class Repo {
     return {
       'Usage' : [{'Mobile data':'95.65 MB used since Nov 1, 2021'},
         {'Battery':'0% used since last fully charged'},
-        {'Storage':'1.11 GB used in Internal stor95.65 MB used since Nov 1, 2021age'},
+        {'Storage':'1.11 GB used in Internal storage'},
         {'Memory':'No memory used in last 3 hours'}
       ],
       'App settings':[
