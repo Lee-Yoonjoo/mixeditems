@@ -18,7 +18,7 @@
         {
           "notifications": "Allowed",
           "permissions": "Camera, Contacts, Location, and Physical activity",
-          "set_as_default":"Non set as default"
+          "set_as_default":"None set as default"
         }
       ]
     },
@@ -39,7 +39,7 @@
         {
           "notifications": "Blocked",
           "permissions": "Contacts, Location, and Storage",
-          "set_as_default":"Non set as default"
+          "set_as_default":"None set as default"
         }
       ]
     },
@@ -60,7 +60,7 @@
         {
           "notifications": "Blocked",
           "permissions": "Camera, Contacts, Location, Physical activity, and Storage",
-          "set_as_default":"Non set as default"
+          "set_as_default":"None set as default"
         }
       ]
     }

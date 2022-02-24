@@ -24,18 +24,23 @@ class IconDetail extends StatelessWidget{
     final customProvider = Provider.of<CustomProvider>(context, listen: false);
     customProvider.loadIconDetailWidgets(iconItem);
 
-    return ListView.builder(
-      shrinkWrap: true,
-      itemCount: customProvider.iconDetailWidgets.length,
-      itemBuilder: (context, index) {
-        final item = customProvider.iconDetailWidgets[index];
+    return Container (
+      color: const Color(0xFFEEEEEE),
+      child:    ListView.builder(
+        shrinkWrap: true,
+        itemCount: customProvider.iconDetailWidgets.length,
+        itemBuilder: (context, index) {
+          final item = customProvider.iconDetailWidgets[index];
 
-        return ListTile(
-          visualDensity: const VisualDensity(horizontal: 0, vertical: -4),
-          title: item.buildHead(context),
-          subtitle: item.buildBody(context),
-        );
-      },
+          return ListTile(
+            visualDensity: const VisualDensity(horizontal: 0, vertical: -4),
+            title: item.buildHead(context),
+            subtitle: item.buildBody(context),
+          );
+        },
+      ),
     );
+
+
   }
 }

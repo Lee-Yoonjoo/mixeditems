@@ -17,6 +17,7 @@ class HeadSection implements WidgetItem {
   Widget buildBody(BuildContext context) {
     return Column(
       children: <Widget>[
+        SizedBox(height: 30),
         CircleAvatar(
           child: Icon(iconItem.icon),
         ),
@@ -29,6 +30,7 @@ class HeadSection implements WidgetItem {
         ),
         SizedBox(height: 10),
         Text(iconItem.latestAccess),
+        SizedBox(height: 20),
       ],
     );
   }
