@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../widget_model.dart';
+import 'package:mixeditems/models/widget_model.dart';
 
 class SwitchItem implements WidgetItem {
   final String switchText;

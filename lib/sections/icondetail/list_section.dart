@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mixeditems/models/icon_detail.dart';
-import 'package:mixeditems/widgets/widget_model.dart';
+import 'package:mixeditems/models/widget_model.dart';
 
 class ListSection implements WidgetItem {
   List<IconDetail> infolist;
-
   ListSection(this.infolist);
 
   @override

@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
 import 'package:mixeditems/models/icon_item.dart';
-import 'package:mixeditems/widgets/widget_model.dart';
-import 'package:mixeditems/providers/icon_list_provider.dart';
-import 'package:provider/provider.dart';
+import 'package:mixeditems/models/widget_model.dart';
 
 class HeadSection implements WidgetItem {
   IconItem iconItem;

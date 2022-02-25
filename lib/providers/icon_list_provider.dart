@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:mixeditems/models/icon_item.dart';
-import 'package:mixeditems/models/listwidget.dart';
+import 'package:mixeditems/models/widget_model.dart';
 import 'package:mixeditems/repository/repo.dart';
 
 class IconListProvider extends ChangeNotifier {
   Repo _repo = Repo();
-  List<WidgetItem> _homeWidgets = [];
+  List<Widget> _homeWidgets = [];
   List<IconItem> _iconItems = [];
   List<int> _intItems = [];
-  List<WidgetItem> _iconDetailWidgets = [];
+  List<Widget> _iconDetailWidgets = [];
 
-  List<WidgetItem> get homeWidgets => _homeWidgets;
+  List<Widget> get homeWidgets => _homeWidgets;
 
   List<IconItem> get iconItems => _iconItems;
 
   List<int> get intItems => _intItems;
 
-  List<WidgetItem> get iconDetailWidgets =>_iconDetailWidgets;
+  List<Widget> get iconDetailWidgets =>_iconDetailWidgets;
 
 
   loadHomeWidgets() {

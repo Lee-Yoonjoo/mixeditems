@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:mixeditems/models/icondetail.dart';
-import 'package:mixeditems/models/iconitem.dart';
-import 'package:mixeditems/models/listwidget.dart';
-import 'package:mixeditems/widgets/home/expandablelist_section.dart';
-import 'package:mixeditems/widgets/home/iconlist_section.dart';
-import 'package:mixeditems/widgets/home/information_section.dart';
-import 'package:mixeditems/widgets/home/question_section.dart';
-import 'package:mixeditems/widgets/home/switch_section.dart';
-import 'package:mixeditems/widgets/icondetail/head_section.dart';
-import 'package:mixeditems/widgets/icondetail/list_section.dart';
-import 'package:mixeditems/widgets/icondetail/version_section.dart';
+import 'package:mixeditems/models/icon_detail.dart';
+import 'package:mixeditems/models/icon_item.dart';
+import 'package:mixeditems/models/widget_model.dart';
+import 'package:mixeditems/sections/home/expandablelist_section.dart';
+import 'package:mixeditems/sections/home/iconlist_section.dart';
+import 'package:mixeditems/sections/home/info_section.dart';
+import 'package:mixeditems/sections/home/question_section.dart';
+import 'package:mixeditems/sections/home/switch_section.dart';
+import 'package:mixeditems/sections/icondetail/head_section.dart';
+import 'package:mixeditems/sections/icondetail/list_section.dart';
+import 'package:mixeditems/sections/icondetail/version_section.dart';
 
 class Repo {
-  List<WidgetItem> getHomeWidgets() {
+  List<Widget> getHomeWidgets() {
     return [
       SwitchItem('Latest Location', true),
-      IconListSection('Latest Access' ),
-      ExpandableListSection('See all'),
-      QuestionTextSection('Welche Apps dürfen den Standort ermitteln?',
+      const IconListSection('Latest Access' ),
+      const ExpandableListSection(title:'See all'),
+      QuestionSection('Welche Apps dürfen den Standort ermitteln?',
           '28 von 90 Apps haben Zugriff auf den Standort'),
       InfoSection('Location Service',
           "You can allow your phone to use GPS, Wi-Fi networks, and cellular networks to determine your approximate location. Applications that have permission can use this information to provide location-based services, such as checking in for a flight, viewing traffic information, finding nearby restaurants, or tagging your photos with location information.")

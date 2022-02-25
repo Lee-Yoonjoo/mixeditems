@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mixeditems/models/icon_item.dart';
-import 'package:mixeditems/widgets/widget_model.dart';
+import 'package:mixeditems/models/widget_model.dart';
 
 class VersionSection implements WidgetItem {
   IconItem iconItem;

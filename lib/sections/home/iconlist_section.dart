@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:mixeditems/models/icon_item.dart';
-import 'package:mixeditems/widgets/widget_model.dart';
 import 'package:mixeditems/providers/icon_list_provider.dart';
 import 'package:mixeditems/screens/icon_detail_widget.dart';
 import 'package:provider/provider.dart';
 
-class IconListSection implements WidgetItem {
+class IconListSection extends StatelessWidget {
+  const IconListSection(this.headerText, {Key? key}) : super(key: key);
   final String headerText;
 
-  IconListSection(this.headerText);
-
   @override
-  Widget buildHead(BuildContext context) {
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [_buildHead(context), _buildBody(context)],
+    );
+  }
+
+  Widget _buildHead(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 10, right: 10, top: 10),
       child: Text(
@@ -25,8 +30,7 @@ class IconListSection implements WidgetItem {
     );
   }
 
-  @override
-  Widget buildBody(BuildContext context) {
+  Widget _buildBody(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: _createMockData(context),
@@ -34,7 +38,8 @@ class IconListSection implements WidgetItem {
   }
 
   List<Widget> _createMockData(BuildContext context) {
-    final customProvider = Provider.of<IconListProvider>(context, listen: false);
+    final customProvider =
+        Provider.of<IconListProvider>(context, listen: false);
     customProvider.loadIconItems();
     List<IconItem> iconItemList = customProvider.iconItems;
     return iconItemList
@@ -45,8 +50,10 @@ class IconListSection implements WidgetItem {
               leading: CircleAvatar(
                 child: Icon(iconItem.icon),
               ),
-              onTap: (){
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => IconDetailWidget(iconItem: iconItem)));
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) =>
+                        IconDetailWidget(iconItem: iconItem)));
               },
             ))
         .toList();

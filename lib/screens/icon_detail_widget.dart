@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:mixeditems/models/icon_item.dart';
-import 'package:mixeditems/providers/iconlist_provider.dart';
+import 'package:mixeditems/providers/icon_list_provider.dart';
 import 'package:provider/provider.dart';
 
 class IconDetailWidget extends StatelessWidget{
@@ -34,8 +34,7 @@ class IconDetailWidget extends StatelessWidget{
 
           return ListTile(
             visualDensity: const VisualDensity(horizontal: 0, vertical: -4),
-            title: item.buildHead(context),
-            subtitle: item.buildBody(context),
+            title: item
           );
         },
       ),
