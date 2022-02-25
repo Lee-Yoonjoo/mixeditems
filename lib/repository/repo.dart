@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mixeditems/models/icon_detail.dart';
 import 'package:mixeditems/models/icon_item.dart';
-import 'package:mixeditems/models/widget_model.dart';
 import 'package:mixeditems/sections/home/expandablelist_section.dart';
 import 'package:mixeditems/sections/home/iconlist_section.dart';
 import 'package:mixeditems/sections/home/info_section.dart';
@@ -36,7 +35,7 @@ class Repo {
     return [1, 2, 3, 4, 5];
   }
 
-  List<WidgetItem> getIconDetailWidgets(IconItem iconItem){
+  List<Widget> getIconDetailWidgets(IconItem iconItem){
     return [
       HeadSection(iconItem),
       ListSection(usageList()),

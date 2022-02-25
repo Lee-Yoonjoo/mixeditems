@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:mixeditems/models/widget_model.dart';
 
-class QuestionSection implements WidgetItem {
+class QuestionSection extends StatelessWidget {
   final String headTitle;
   final String subTitle;
 
-  QuestionSection(this.headTitle, this.subTitle);
+  QuestionSection(this.headTitle, this.subTitle, {Key? key}) : super(key: key);
 
   @override
-  Widget buildHead(BuildContext context) => const SizedBox.shrink();
-
-  @override
-  Widget buildBody(BuildContext context) {
+  Widget build(BuildContext context) {
     return ListTile(
       title: Padding(
         padding: const EdgeInsets.only(bottom: 5),

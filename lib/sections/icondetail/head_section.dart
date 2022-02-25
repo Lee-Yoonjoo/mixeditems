@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:mixeditems/models/icon_item.dart';
-import 'package:mixeditems/models/widget_model.dart';
 
-class HeadSection implements WidgetItem {
+class HeadSection extends StatelessWidget {
   IconItem iconItem;
 
-  HeadSection(this.iconItem);
+  HeadSection(this.iconItem, {Key? key}) : super(key: key);
 
   @override
-  Widget buildHead(BuildContext context) => const SizedBox.shrink();
-
-  @override
-  Widget buildBody(BuildContext context) {
+  Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
         SizedBox(height: 30),

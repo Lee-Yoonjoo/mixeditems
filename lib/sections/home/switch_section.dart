@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:mixeditems/models/widget_model.dart';
 
-class SwitchItem implements WidgetItem {
+class SwitchItem extends StatelessWidget {
+
+  const SwitchItem(this.switchText, this.isOn, {Key? key}) : super(key: key);
   final String switchText;
   final bool isOn;
 
-  SwitchItem(this.switchText, this.isOn);
-
   @override
-  Widget buildHead(BuildContext context) => const SizedBox.shrink();
-
-  @override
-  Widget buildBody(BuildContext context) {
+  Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 10),
       child: ClipRRect(

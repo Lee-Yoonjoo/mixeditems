@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:mixeditems/models/icon_detail.dart';
-import 'package:mixeditems/models/widget_model.dart';
 
-class ListSection implements WidgetItem {
+class ListSection extends StatelessWidget {
   List<IconDetail> infolist;
-  ListSection(this.infolist);
+  ListSection(this.infolist, {Key? key}) : super(key: key);
+
 
   @override
-  Widget buildHead(BuildContext context) {
+  Widget build(BuildContext context) {
+    return Column(
+      children: [_buildHead(context), _buildBody(context)],
+    );
+  }
+
+  @override
+  Widget _buildHead(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 5),
       child: Text(
@@ -22,7 +29,7 @@ class ListSection implements WidgetItem {
   }
 
   @override
-  Widget buildBody(BuildContext context) {
+  Widget _buildBody(BuildContext context) {
     return ClipRRect(
       borderRadius: const BorderRadius.all(Radius.circular(20)),
       child: Container(
@@ -52,4 +59,5 @@ class ListSection implements WidgetItem {
             ))
         .toList();
   }
+
 }

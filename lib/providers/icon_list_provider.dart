@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mixeditems/models/icon_item.dart';
-import 'package:mixeditems/models/widget_model.dart';
 import 'package:mixeditems/repository/repo.dart';
 
 class IconListProvider extends ChangeNotifier {
