@@ -1,11 +1,8 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:mixeditems/models/icon_item.dart';
-import 'package:mixeditems/providers/icon_list_provider.dart';
-import 'package:provider/provider.dart';
+import 'package:mixeditems/repository/widget_placeholder.dart';
 
-class IconDetailWidget extends StatelessWidget{
+class IconDetailWidget extends StatelessWidget {
   const IconDetailWidget({Key? key, required this.iconItem}) : super(key: key);
 
   final IconItem iconItem;
@@ -21,25 +18,22 @@ class IconDetailWidget extends StatelessWidget{
   }
 
   Widget _buildListView(BuildContext context) {
-    final customProvider = Provider.of<IconListProvider>(context, listen: false);
-    customProvider.loadIconDetailWidgets(iconItem);
+    WidgetPlaceHolder _widgetPlaceHolder = WidgetPlaceHolder();
+    List<Widget> iconDetailWidgets = _widgetPlaceHolder.getIconDetailWidgets(iconItem);
 
-    return Container (
+    return Container(
       color: const Color(0xFFEEEEEE),
-      child:    ListView.builder(
+      child: ListView.builder(
         shrinkWrap: true,
-        itemCount: customProvider.iconDetailWidgets.length,
+        itemCount: iconDetailWidgets.length,
         itemBuilder: (context, index) {
-          final item = customProvider.iconDetailWidgets[index];
+          final item = iconDetailWidgets[index];
 
           return ListTile(
-            visualDensity: const VisualDensity(horizontal: 0, vertical: -4),
-            title: item
-          );
+              visualDensity: const VisualDensity(horizontal: 0, vertical: -4),
+              title: item);
         },
       ),
     );
-
-
   }
 }

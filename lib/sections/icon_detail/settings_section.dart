@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:mixeditems/models/icon_detail.dart';
+import 'package:mixeditems/providers/icon_list_provider.dart';
+import 'package:provider/provider.dart';
 
-class ListSection extends StatelessWidget {
-  List<IconDetail> infolist;
-  ListSection(this.infolist, {Key? key}) : super(key: key);
+class SettingsSection extends StatelessWidget {
+  SettingsSection(this.title, {Key? key}) : super(key: key);
+  String title;
 
 
   @override
@@ -13,12 +15,11 @@ class ListSection extends StatelessWidget {
     );
   }
 
-  @override
   Widget _buildHead(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 5),
       child: Text(
-        infolist.first.head,
+        title,
         style: const TextStyle(
           fontSize: 13,
           fontWeight: FontWeight.bold,
@@ -28,7 +29,6 @@ class ListSection extends StatelessWidget {
     );
   }
 
-  @override
   Widget _buildBody(BuildContext context) {
     return ClipRRect(
       borderRadius: const BorderRadius.all(Radius.circular(20)),
@@ -46,8 +46,12 @@ class ListSection extends StatelessWidget {
   }
 
   List<Widget> _createMockData(BuildContext context) {
-    List<IconDetail> itemList = infolist;
-    return itemList
+    final customProvider =
+    Provider.of<IconListProvider>(context, listen: false);
+    customProvider.loadDataSettingsList();
+    List<IconDetail> iconDetailList = customProvider.iconSettingsItems;
+
+    return iconDetailList
         .map((item) => ListTile(
               visualDensity: const VisualDensity(horizontal: 0, vertical: -1),
               title: Padding(
@@ -59,5 +63,6 @@ class ListSection extends StatelessWidget {
             ))
         .toList();
   }
+
 
 }

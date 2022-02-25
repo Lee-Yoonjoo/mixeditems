@@ -4,7 +4,8 @@ class QuestionSection extends StatelessWidget {
   final String headTitle;
   final String subTitle;
 
-  QuestionSection(this.headTitle, this.subTitle, {Key? key}) : super(key: key);
+  const QuestionSection(this.headTitle, this.subTitle, {Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

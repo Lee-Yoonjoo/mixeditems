@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mixeditems/providers/icon_list_provider.dart';
-import 'package:provider/provider.dart';
+import 'package:mixeditems/repository/widget_placeholder.dart';
 
 class HomeWidget extends StatelessWidget {
   const HomeWidget({Key? key}) : super(key: key);
@@ -16,14 +15,14 @@ class HomeWidget extends StatelessWidget {
   }
 
   Widget _buildListView(BuildContext context) {
-    final customProvider = Provider.of<IconListProvider>(context, listen: false);
-    customProvider.loadHomeWidgets();
+    WidgetPlaceHolder _widgetPlaceHolder = WidgetPlaceHolder();
+    List<Widget> homeWidgets = _widgetPlaceHolder.getHomeWidgets();
 
     return ListView.builder(
       shrinkWrap: true,
-      itemCount: customProvider.homeWidgets.length,
+      itemCount: homeWidgets.length,
       itemBuilder: (context, index) {
-        final item = customProvider.homeWidgets[index];
+        final item = homeWidgets[index];
 
         return ListTile(
           visualDensity: const VisualDensity(horizontal: 0, vertical: -4),

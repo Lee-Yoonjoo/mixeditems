@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class SwitchItem extends StatelessWidget {
-
   const SwitchItem(this.switchText, this.isOn, {Key? key}) : super(key: key);
   final String switchText;
   final bool isOn;

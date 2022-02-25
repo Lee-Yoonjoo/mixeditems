@@ -1,26 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:mixeditems/models/icon_detail.dart';
 import 'package:mixeditems/models/icon_item.dart';
 import 'package:mixeditems/repository/repo.dart';
 
 class IconListProvider extends ChangeNotifier {
-  Repo _repo = Repo();
-  List<Widget> _homeWidgets = [];
+  final Repo _repo = Repo();
   List<IconItem> _iconItems = [];
+  List<IconDetail> _iconUsageItems =[];
+  List<IconDetail> _iconSettingsItems =[];
   List<int> _intItems = [];
-  List<Widget> _iconDetailWidgets = [];
-
-  List<Widget> get homeWidgets => _homeWidgets;
 
   List<IconItem> get iconItems => _iconItems;
 
   List<int> get intItems => _intItems;
-
-  List<Widget> get iconDetailWidgets =>_iconDetailWidgets;
-
-
-  loadHomeWidgets() {
-    _homeWidgets = _repo.getHomeWidgets();
-  }
+  List<IconDetail> get iconUsageItems => _iconUsageItems;
+  List<IconDetail> get iconSettingsItems => _iconSettingsItems;
 
   loadIconItems() {
     _iconItems = _repo.getIconListItems();
@@ -30,7 +24,11 @@ class IconListProvider extends ChangeNotifier {
     _intItems = _repo.getMockData();
   }
 
-  loadIconDetailWidgets(IconItem iconItem){
-    _iconDetailWidgets = _repo.getIconDetailWidgets(iconItem);
+  loadDataUsageList() {
+    _iconUsageItems = _repo.getDataUsageList();
+  }
+
+  loadDataSettingsList() {
+    _iconSettingsItems = _repo.getDataSettingsList();
   }
 }
