@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../models/listwidget.dart';
+import '../widget_model.dart';
 
 class InfoSection implements WidgetItem {
   final String infoTitle;

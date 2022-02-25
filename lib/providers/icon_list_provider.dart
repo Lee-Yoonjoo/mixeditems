@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:mixeditems/models/iconitem.dart';
+import 'package:mixeditems/models/icon_item.dart';
 import 'package:mixeditems/models/listwidget.dart';
 import 'package:mixeditems/repository/repo.dart';
 
-class CustomProvider extends ChangeNotifier {
-  Repo _data = Repo();
+class IconListProvider extends ChangeNotifier {
+  Repo _repo = Repo();
   List<WidgetItem> _homeWidgets = [];
   List<IconItem> _iconItems = [];
   List<int> _intItems = [];
@@ -20,18 +20,18 @@ class CustomProvider extends ChangeNotifier {
 
 
   loadHomeWidgets() {
-    _homeWidgets = _data.getHomeWidgets();
+    _homeWidgets = _repo.getHomeWidgets();
   }
 
   loadIconItems() {
-    _iconItems = _data.getIconListItems();
+    _iconItems = _repo.getIconListItems();
   }
 
   loadIntItems() {
-    _intItems = _data.getMockData();
+    _intItems = _repo.getMockData();
   }
 
   loadIconDetailWidgets(IconItem iconItem){
-    _iconDetailWidgets = _data.getIconDetailWidgets(iconItem);
+    _iconDetailWidgets = _repo.getIconDetailWidgets(iconItem);
   }
 }

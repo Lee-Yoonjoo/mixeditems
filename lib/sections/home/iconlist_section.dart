@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mixeditems/models/iconitem.dart';
-import 'package:mixeditems/models/listwidget.dart';
-import 'package:mixeditems/providers/provider.dart';
-import 'package:mixeditems/screens/icondetail.dart';
+import 'package:mixeditems/models/icon_item.dart';
+import 'package:mixeditems/widgets/widget_model.dart';
+import 'package:mixeditems/providers/icon_list_provider.dart';
+import 'package:mixeditems/screens/icon_detail_widget.dart';
 import 'package:provider/provider.dart';
 
 class IconListSection implements WidgetItem {
@@ -34,7 +34,7 @@ class IconListSection implements WidgetItem {
   }
 
   List<Widget> _createMockData(BuildContext context) {
-    final customProvider = Provider.of<CustomProvider>(context, listen: false);
+    final customProvider = Provider.of<IconListProvider>(context, listen: false);
     customProvider.loadIconItems();
     List<IconItem> iconItemList = customProvider.iconItems;
     return iconItemList
@@ -46,7 +46,7 @@ class IconListSection implements WidgetItem {
                 child: Icon(iconItem.icon),
               ),
               onTap: (){
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => IconDetail(iconItem: iconItem)));
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => IconDetailWidget(iconItem: iconItem)));
               },
             ))
         .toList();

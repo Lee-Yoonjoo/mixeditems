@@ -1,12 +1,12 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:mixeditems/models/iconitem.dart';
-import 'package:mixeditems/providers/provider.dart';
+import 'package:mixeditems/models/icon_item.dart';
+import 'package:mixeditems/providers/iconlist_provider.dart';
 import 'package:provider/provider.dart';
 
-class IconDetail extends StatelessWidget{
-  const IconDetail({Key? key, required this.iconItem}) : super(key: key);
+class IconDetailWidget extends StatelessWidget{
+  const IconDetailWidget({Key? key, required this.iconItem}) : super(key: key);
 
   final IconItem iconItem;
 
@@ -21,7 +21,7 @@ class IconDetail extends StatelessWidget{
   }
 
   Widget _buildListView(BuildContext context) {
-    final customProvider = Provider.of<CustomProvider>(context, listen: false);
+    final customProvider = Provider.of<IconListProvider>(context, listen: false);
     customProvider.loadIconDetailWidgets(iconItem);
 
     return Container (

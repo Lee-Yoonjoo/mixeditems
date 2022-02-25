@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mixeditems/providers/provider.dart';
+import 'package:mixeditems/providers/iconlist_provider.dart';
 import 'package:provider/provider.dart';
 
-class Home extends StatelessWidget {
+class HomeWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,7 +14,7 @@ class Home extends StatelessWidget {
   }
 
   Widget _buildListView(BuildContext context) {
-    final customProvider = Provider.of<CustomProvider>(context, listen: false);
+    final customProvider = Provider.of<IconListProvider>(context, listen: false);
     customProvider.loadHomeWidgets();
 
     return ListView.builder(

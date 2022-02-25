@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mixeditems/repository/repo.dart';
 import 'package:provider/provider.dart';
-import '../../models/listwidget.dart';
-import '../../providers/provider.dart';
+import '../widget_model.dart';
+import '../../providers/icon_list_provider.dart';
 
 class ExpandableListSection implements WidgetItem {
   final String title;
@@ -24,7 +24,7 @@ class ExpandableListSection implements WidgetItem {
 
 
   List<Widget> _createMockData(BuildContext context) {
-    final customProvider = Provider.of<CustomProvider>(context, listen: false);
+    final customProvider = Provider.of<IconListProvider>(context, listen: false);
     customProvider.loadIntItems();
     List<int> mockData = customProvider.intItems;
     return mockData

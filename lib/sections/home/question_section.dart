@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import '../../models/listwidget.dart';
+import '../widget_model.dart';
 
-class QuestionTextSection implements WidgetItem {
+class QuestionSection implements WidgetItem {
   final String headTitle;
   final String subTitle;
 
-  QuestionTextSection(this.headTitle, this.subTitle);
+  QuestionSection(this.headTitle, this.subTitle);
 
   @override
   Widget buildHead(BuildContext context) => const SizedBox.shrink();
