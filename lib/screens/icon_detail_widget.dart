@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mixeditems/models/icon_item.dart';
-import 'package:mixeditems/repository/widget_placeholder.dart';
+import 'package:mixeditems/sections/icon_detail/head_section.dart';
+import 'package:mixeditems/sections/icon_detail/settings_section.dart';
+import 'package:mixeditems/sections/icon_detail/usage_section.dart';
+import 'package:mixeditems/sections/icon_detail/version_section.dart';
 
 class IconDetailWidget extends StatelessWidget {
   const IconDetailWidget({Key? key, required this.iconItem}) : super(key: key);
@@ -18,8 +21,7 @@ class IconDetailWidget extends StatelessWidget {
   }
 
   Widget _buildListView(BuildContext context) {
-    WidgetPlaceHolder _widgetPlaceHolder = WidgetPlaceHolder();
-    List<Widget> iconDetailWidgets = _widgetPlaceHolder.getIconDetailWidgets(iconItem);
+    List<Widget> iconDetailWidgets = _getIconDetailWidgets(iconItem);
 
     return Container(
       color: const Color(0xFFEEEEEE),
@@ -36,4 +38,13 @@ class IconDetailWidget extends StatelessWidget {
       ),
     );
   }
+}
+
+List<Widget> _getIconDetailWidgets(IconItem iconItem) {
+  return [
+    HeadSection(iconItem),
+    UsageSection('Usage'),
+    SettingsSection('App settings'),
+    VersionSection(iconItem)
+  ];
 }

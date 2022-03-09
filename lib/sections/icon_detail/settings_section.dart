@@ -7,7 +7,6 @@ class SettingsSection extends StatelessWidget {
   SettingsSection(this.title, {Key? key}) : super(key: key);
   String title;
 
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -35,11 +34,10 @@ class SettingsSection extends StatelessWidget {
       child: Container(
         color: Colors.white,
         child: Padding(
-          padding: const EdgeInsets.only(left: 5, top:5 ,bottom: 5),
+          padding: const EdgeInsets.only(left: 5, top: 5, bottom: 5),
           child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: _createMockData(context)),
-
         ),
       ),
     );
@@ -47,7 +45,7 @@ class SettingsSection extends StatelessWidget {
 
   List<Widget> _createMockData(BuildContext context) {
     final customProvider =
-    Provider.of<IconListProvider>(context, listen: false);
+        Provider.of<IconListProvider>(context, listen: false);
     customProvider.loadDataSettingsList();
     List<IconDetail> iconDetailList = customProvider.iconSettingsItems;
 
@@ -63,6 +61,4 @@ class SettingsSection extends StatelessWidget {
             ))
         .toList();
   }
-
-
 }

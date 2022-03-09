@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class InfoSection extends StatelessWidget {
-  const InfoSection(this.infoTitle, this.infoDescription, {Key? key}) : super(key: key);
+  const InfoSection(this.infoTitle, this.infoDescription, {Key? key})
+      : super(key: key);
 
   final String infoTitle;
   final String infoDescription;
-
 
   @override
   Widget build(BuildContext context) {
@@ -40,6 +40,4 @@ class InfoSection extends StatelessWidget {
       ),
     );
   }
-
-
 }

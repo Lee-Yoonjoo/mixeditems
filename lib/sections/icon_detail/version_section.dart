@@ -15,7 +15,8 @@ class VersionSection extends StatelessWidget {
         child: Container(
           color: Colors.white,
           child: Padding(
-            padding: const EdgeInsets.only(left: 15, right: 10, top: 10,bottom: 10),
+            padding:
+                const EdgeInsets.only(left: 15, right: 10, top: 10, bottom: 10),
             child: Text(
               'Version ${iconItem.version}',
               style: const TextStyle(
@@ -27,6 +28,5 @@ class VersionSection extends StatelessWidget {
         ),
       ),
     );
-
   }
 }
