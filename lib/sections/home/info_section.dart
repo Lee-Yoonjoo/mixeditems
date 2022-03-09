@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
-import '../models/listitem.dart';
 
-class InfoSection implements ListItem {
+class InfoSection extends StatelessWidget {
+  const InfoSection(this.infoTitle, this.infoDescription, {Key? key})
+      : super(key: key);
+
   final String infoTitle;
   final String infoDescription;
 
-  InfoSection(this.infoTitle, this.infoDescription);
-
   @override
-  Widget buildHead(BuildContext context) => const SizedBox.shrink();
-
-  @override
-  Widget buildBody(BuildContext context) {
+  Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 15, right: 15),
       child: Column(

@@ -1,0 +1,68 @@
+
+{
+  "results": [
+    {
+      "name": "Fit",
+      "latest_access": "5 minutes ago",
+      "status" : "Installed",
+      "version" : "0.229.1",
+      "usage": [
+        {
+          "mobile_data": "95.65 MB used since Nov 1, 2021",
+          "battery": "0% used since last fully charged",
+          "storage":"1.11 GB used in Internal storage",
+          "memory": "No memory used in last 3 hours"
+        }
+      ],
+      "app_settings": [
+        {
+          "notifications": "Allowed",
+          "permissions": "Camera, Contacts, Location, and Physical activity",
+          "set_as_default":"None set as default"
+        }
+      ]
+    },
+    {
+      "name": "Emergency Information",
+      "latest_access": "8 minutes ago",
+      "status" : "Installed",
+      "version" : "355.0.0.11.108",
+      "usage": [
+        {
+          "mobile_data": "4.25 GB used since Nov 1, 2021",
+          "battery": "7% used since last fully charged",
+          "storage":"1.01 GB used in Internal storage",
+          "memory": "7.0 MB used in last 3 hours"
+        }
+      ],
+      "app_settings": [
+        {
+          "notifications": "Blocked",
+          "permissions": "Contacts, Location, and Storage",
+          "set_as_default":"None set as default"
+        }
+      ]
+    },
+    {
+      "name": "Maps",
+      "latest_access": "10 minutes ago",
+      "status" : "Installed",
+      "version" : "11.18.3",
+      "usage": [
+        {
+          "mobile_data": "355 MB used since Nov 1, 2021",
+          "battery": "0% used since last fully charged",
+          "storage":"366 MB used in Internal storage",
+          "memory": "7.0 MB used in last 3 hours"
+        }
+      ],
+      "app_settings": [
+        {
+          "notifications": "Blocked",
+          "permissions": "Camera, Contacts, Location, Physical activity, and Storage",
+          "set_as_default":"None set as default"
+        }
+      ]
+    }
+  ]
+}
