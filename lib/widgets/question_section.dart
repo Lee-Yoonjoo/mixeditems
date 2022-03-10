@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import '../models/listitem.dart';
 
-class QuestionSection extends StatelessWidget {
+class QuestionTextSection implements ListItem {
   final String headTitle;
   final String subTitle;
 
-  const QuestionSection(this.headTitle, this.subTitle, {Key? key})
-      : super(key: key);
+  QuestionTextSection(this.headTitle, this.subTitle);
 
   @override
-  Widget build(BuildContext context) {
+  Widget buildHead(BuildContext context) => const SizedBox.shrink();
+
+  @override
+  Widget buildBody(BuildContext context) {
     return ListTile(
       title: Padding(
         padding: const EdgeInsets.only(bottom: 5),

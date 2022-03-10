@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mixeditems/myapp.dart';
+import 'package:mixeditems/widgets/myapp.dart';
 
 void main() {
   runApp(
-    const MyApp(),
+    MyApp(),
   );
 }
